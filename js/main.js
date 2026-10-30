@@ -278,4 +278,48 @@ document.addEventListener('DOMContentLoaded', () => {
       behavior: 'smooth'
     });
   });
+
+  // 6. Project Filter Tabs & Top 5 Toggle Handler
+  const projectTabs = document.querySelectorAll('.project-filter-tabs .tab-btn');
+  const projectCards = document.querySelectorAll('.project-card');
+  const projectsGrid = document.querySelector('.projects-grid');
+  const toggleProjectsBtn = document.getElementById('toggleProjectsBtn');
+
+  if (toggleProjectsBtn && projectsGrid) {
+    toggleProjectsBtn.addEventListener('click', () => {
+      const isExpanded = projectsGrid.classList.toggle('is-expanded');
+      toggleProjectsBtn.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+      const btnText = toggleProjectsBtn.querySelector('.btn-text');
+      const icon = toggleProjectsBtn.querySelector('.toggle-icon');
+      
+      if (isExpanded) {
+        if (btnText) btnText.textContent = 'Show Top 5 Projects';
+        if (icon) icon.innerHTML = '<polyline points="18 15 12 9 6 15"></polyline>';
+      } else {
+        if (btnText) btnText.textContent = 'View All Projects (12+)';
+        if (icon) icon.innerHTML = '<polyline points="6 9 12 15 18 9"></polyline>';
+        const projectsSection = document.getElementById('projects');
+        if (projectsSection) {
+          projectsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    });
+  }
+
+  // Auto-expand projects when filtering
+  projectTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const filter = tab.getAttribute('data-filter') || 'all';
+      if (filter !== 'all') {
+        if (projectsGrid) projectsGrid.classList.add('is-expanded');
+        if (toggleProjectsBtn) {
+          const btnText = toggleProjectsBtn.querySelector('.btn-text');
+          const icon = toggleProjectsBtn.querySelector('.toggle-icon');
+          if (btnText) btnText.textContent = 'Show Top 5 Projects';
+          if (icon) icon.innerHTML = '<polyline points="18 15 12 9 6 15"></polyline>';
+        }
+      }
+    });
+  });
+
 });

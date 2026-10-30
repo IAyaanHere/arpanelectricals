@@ -54,14 +54,25 @@
         <li><a href="contact.html" class="nav-link">Contact</a></li>
       </ul>
 
-      <!-- Navbar Action Buttons -->
+            <!-- Navbar Action Buttons (Utilised Space + Hotline + Responsive CTA) -->
       <div class="nav-actions">
+        <a href="tel:+918047657578" class="header-phone-cta" title="Call Arpan Electricals Hotline">
+          <span class="phone-icon-wrap">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          </span>
+          <span class="phone-text">
+            <small>Direct Hotline</small>
+            <strong>+91-8047657578</strong>
+          </span>
+        </a>
+
         <a href="https://wa.me/918855847066?text=Hello%20Arpan%20Electricals%20%26%20Enterprises%2C%20I%20would%20like%20to%20request%20an%20enquiry%20%2F%20quote%20for%20an%20Electrical%20Substation%20%2F%20Transformer%20project." target="_blank" rel="noopener noreferrer" class="btn btn-primary" title="Request Quote on WhatsApp (+91-8855847066)">
           <span>Request Quote</span>
-          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
         </a>
+
         <button class="menu-toggle" aria-label="Toggle Mobile Menu">
-          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
         </button>
       </div>
     </div>
@@ -534,7 +545,8 @@
           <button class="tab-btn" data-filter="cabling">Cabling &amp; Panels</button>
         </div>
 
-        <div class="projects-grid">
+                <div class="projects-grid">
+          <!-- TOP 5 FIELD PROJECTS (Visible Initially) -->
           <!-- Project 1 -->
           <div class="project-card" data-category="substation">
             <div class="project-img-wrap">
@@ -620,8 +632,9 @@
             </div>
           </div>
 
+          <!-- REMAINING PROJECTS (Revealed on 'View All Projects' click or category filter) -->
           <!-- Project 6 -->
-          <div class="project-card" data-category="substation">
+          <div class="project-card project-extra" data-category="substation">
             <div class="project-img-wrap">
               <img src="assets/arpan-images/high-voltage-substation-erection-services-500x500.jpg" alt="High Voltage Substation Erection" loading="lazy">
               <div class="project-badge">HV Substation</div>
@@ -638,7 +651,7 @@
           </div>
 
           <!-- Project 7 -->
-          <div class="project-card" data-category="cabling">
+          <div class="project-card project-extra" data-category="cabling">
             <div class="project-img-wrap">
               <img src="assets/arpan-images/power-control-center-500x500.jpg" alt="Power Control Center (PCC)" loading="lazy">
               <div class="project-badge">PCC &amp; MCC Panels</div>
@@ -655,7 +668,7 @@
           </div>
 
           <!-- Project 8 -->
-          <div class="project-card" data-category="transformer">
+          <div class="project-card project-extra" data-category="transformer">
             <div class="project-img-wrap">
               <img src="assets/arpan-images/transformer-erection-testing-commisioning-services-500x500.png" alt="Transformer Erection Testing & Commissioning" loading="lazy">
               <div class="project-badge">Turnkey ETC</div>
@@ -663,7 +676,7 @@
             <div class="project-info">
               <div class="project-category">Testing &amp; Commissioning</div>
               <h3 class="project-title">Transformer Erection, Testing &amp; Commissioning</h3>
-              <p class="project-desc">25 MVA, 132kV transformer skidding, foundation placement, nitrogen filling release, vacuum filling, and full ratio/vector testing.</p>
+              <p class="project-desc">25 MVA, 132kV foundation skidding, nitrogen release, and vector ratio tests.</p>
               <div class="project-action">
                 <span>View Full Details</span>
                 <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
@@ -672,7 +685,7 @@
           </div>
 
           <!-- Project 9 -->
-          <div class="project-card" data-category="substation">
+          <div class="project-card project-extra" data-category="substation">
             <div class="project-img-wrap">
               <img src="assets/arpan-images/unitized-substation-services-500x500.jpg" alt="Unitized Substation Services" loading="lazy">
               <div class="project-badge">Package Substation</div>
@@ -680,7 +693,7 @@
             <div class="project-info">
               <div class="project-category">Modern Compact Grid</div>
               <h3 class="project-title">Unitized Substation (USS) &amp; E-House</h3>
-              <p class="project-desc">Modular, weatherproof unitized substations incorporating vacuum circuit breakers, dry/oil transformer, and LT switchgear in a single enclosure.</p>
+              <p class="project-desc">Weatherproof package substations with VCB, dry transformer, and LT switchgear.</p>
               <div class="project-action">
                 <span>View Full Details</span>
                 <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
@@ -689,7 +702,7 @@
           </div>
 
           <!-- Project 10 -->
-          <div class="project-card" data-category="cabling">
+          <div class="project-card project-extra" data-category="cabling">
             <div class="project-img-wrap">
               <img src="assets/arpan-images/apfc-pane-500x500.jpg" alt="APFC Panel Testing & Maintenance" loading="lazy">
               <div class="project-badge">Power Quality</div>
@@ -697,7 +710,7 @@
             <div class="project-info">
               <div class="project-category">Industrial Power Quality</div>
               <h3 class="project-title">APFC Panel Maintenance &amp; Power Factor Correction</h3>
-              <p class="project-desc">Automatic Power Factor Correction capacitor banks maintenance, contactor replacement, and relay calibration for industrial power savings.</p>
+              <p class="project-desc">Automatic capacitor bank servicing, contactor upgrades, and relay tuning.</p>
               <div class="project-action">
                 <span>View Full Details</span>
                 <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
@@ -706,15 +719,15 @@
           </div>
 
           <!-- Project 11 -->
-          <div class="project-card" data-category="oil">
+          <div class="project-card project-extra" data-category="oil">
             <div class="project-img-wrap">
               <img src="assets/arpan-images/hydraulic-oil-tg-oil-compressor-oil-filtration-500x500.jpg" alt="Hydraulic & Turbine Oil Filtration" loading="lazy">
-              <div class="project-badge">Specialized Industrial Oil</div>
+              <div class="project-badge">Specialized Oil</div>
             </div>
             <div class="project-info">
               <div class="project-category">Industrial Fluid Treatment</div>
               <h3 class="project-title">Turbine &amp; Hydraulic Oil Filtration Services</h3>
-              <p class="project-desc">Centrifugal and multi-stage coalescing filtration for steam turbine oil, TG sets, and hydraulic power packs in steel and paper mills.</p>
+              <p class="project-desc">Centrifugal coalescing purification for turbine sets and industrial hydraulic packs.</p>
               <div class="project-action">
                 <span>View Full Details</span>
                 <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
@@ -723,7 +736,7 @@
           </div>
 
           <!-- Project 12 -->
-          <div class="project-card" data-category="transformer">
+          <div class="project-card project-extra" data-category="transformer">
             <div class="project-img-wrap">
               <img src="assets/arpan-images/p_20160416_144949-1000x1000.jpg" alt="On Site Substation & Transformer Work" loading="lazy">
               <div class="project-badge">Field Execution</div>
@@ -731,13 +744,23 @@
             <div class="project-info">
               <div class="project-category">Site Accomplishment</div>
               <h3 class="project-title">33 MVA Arc Furnace Transformer Overhaul (SAIL)</h3>
-              <p class="project-desc">Accomplished overhaul and core refurbishment of 33 MVA, 22 kV Arc Furnace Transformer at Maharashtra Elektrosmelt Ltd. (Unit of SAIL).</p>
+              <p class="project-desc">Turnkey overhaul and core refurbishment for 33 MVA, 22 kV Arc Furnace at MEL SAIL.</p>
               <div class="project-action">
                 <span>View Full Details</span>
                 <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
               </div>
             </div>
           </div>
+        </div>
+
+        <!-- View All Projects (12+) Toggle Wrap -->
+        <div class="projects-toggle-wrap" style="display: flex; justify-content: center; margin-top: 3.5rem;">
+          <button id="toggleProjectsBtn" class="btn btn-outline" aria-expanded="false" style="padding: 1.2rem 3rem; display: inline-flex; align-items: center; gap: 1rem; font-weight: 700; letter-spacing: 0.05em; cursor: pointer;">
+            <span class="btn-text">View All Projects (12+)</span>
+            <svg class="toggle-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
         </div>
       </div>
     </section>
@@ -993,16 +1016,16 @@
     </section>
   </main>
 
-    <!-- STREAMLINED FOOTER -->
+      <!-- STREAMLINED & BALANCED FOOTER -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-top">
         <div class="footer-brand">
           <a href="index.html" class="site-logo">
-            <img src="assets/logos/arpan-logo-white.svg?v=4" alt="Arpan Electricals Logo" height="48">
+            <img src="assets/logos/arpan-logo-white.svg?v=4" alt="Arpan Electricals Logo" height="46">
           </a>
           <p class="footer-tagline">
-            EHV Substation Erection up to 400 kV, Power Transformer Overhauling (315 MVA), High-Vacuum Oil Filtration &amp; Turnkey Electrification.
+            EHV Substation Erection up to 400 kV, Power Transformer Overhauling (315 MVA), High-Vacuum Oil Filtration &amp; Turnkey Electrification across India.
           </p>
           <div class="footer-meta">
             <span class="f-badge">Estd. 2002</span>
@@ -1010,7 +1033,7 @@
             <span class="f-badge">GST: 27ANBPK8323Q1ZI</span>
           </div>
           <div class="footer-address">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
             <span>Nagpur, Maharashtra - 440009, India</span>
           </div>
         </div>
@@ -1018,41 +1041,41 @@
         <div class="footer-col">
           <h4>Capabilities</h4>
           <ul class="footer-links">
-            <li><a href="capabilities.html#substation-erection">Substation Erection</a></li>
-            <li><a href="capabilities.html#transformer-overhauling">Transformer Overhauling</a></li>
-            <li><a href="capabilities.html#oil-filtration">Oil Filtration (400 kV)</a></li>
-            <li><a href="capabilities.html#cable-services">HT/LT Cable Laying</a></li>
+            <li><a href="capabilities.html#substation-erection">Substation Erection (400 kV)</a></li>
+            <li><a href="capabilities.html#transformer-overhauling">Transformer Overhauling (315 MVA)</a></li>
+            <li><a href="capabilities.html#oil-filtration">High-Vacuum Oil Filtration</a></li>
+            <li><a href="capabilities.html#cable-services">HT/LT Cabling &amp; Jointing</a></li>
             <li><a href="capabilities.html#control-panels">Control &amp; Relay Panels</a></li>
-            <li><a href="capabilities.html#turnkey-electrification">Turnkey Projects</a></li>
+            <li><a href="capabilities.html#turnkey-electrification">Turnkey Industrial Projects</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
           <h4>Company</h4>
           <ul class="footer-links">
-            <li><a href="about.html">About Arpan</a></li>
+            <li><a href="about.html">About Arpan Electricals</a></li>
             <li><a href="about.html#leadership">Leadership Team</a></li>
-            <li><a href="companies.html">Client Portfolio</a></li>
+            <li><a href="companies.html">Client &amp; PSU Portfolio</a></li>
             <li><a href="index.html#projects">Completed Works</a></li>
             <li><a href="about.html#factsheet">Company Factsheet</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="contact.html">Contact &amp; Head Office</a></li>
           </ul>
         </div>
 
-        <div class="footer-col">
-          <h4>Direct Contact</h4>
+        <div class="footer-col footer-contact-items-col">
+          <h4>Direct Connect</h4>
           <div class="footer-contact-items">
-            <a href="tel:+918047657578" class="f-contact-link">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <a href="tel:+918047657578" class="f-contact-card">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
               <span>+91-8047657578</span>
             </a>
-            <a href="https://wa.me/918855847066?text=Hello%20Arpan%20Electricals%20%26%20Enterprises%2C%20I%20would%20like%20to%20request%20an%20enquiry%20%2F%20quote%20for%20an%20Electrical%20Substation%20%2F%20Transformer%20project." target="_blank" rel="noopener noreferrer" class="f-contact-link">
+            <a href="https://wa.me/918855847066?text=Hello%20Arpan%20Electricals%20%26%20Enterprises%2C%20I%20would%20like%20to%20request%20an%20enquiry%20%2F%20quote%20for%20an%20Electrical%20Substation%20%2F%20Transformer%20project." target="_blank" rel="noopener noreferrer" class="f-contact-card">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
               <span>+91-8855847066</span>
             </a>
             <div class="f-contact-note">Mon &ndash; Sat: 9:00 AM &ndash; 7:00 PM IST</div>
             <a href="https://wa.me/918855847066?text=Hello%20Arpan%20Electricals%20%26%20Enterprises%2C%20I%20would%20like%20to%20request%20an%20enquiry%20%2F%20quote%20for%20an%20Electrical%20Substation%20%2F%20Transformer%20project." target="_blank" rel="noopener noreferrer" class="btn btn-primary f-quote-btn">
-              <span>Instant Quote</span>
+              <span>Request Quotation</span>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
           </div>
@@ -1083,7 +1106,7 @@
   <!-- Scripts -->
   <script src="js/main.js"></script>
 
-  <!-- Floating WhatsApp Quick Connect -->
+    <!-- Floating Glowing WhatsApp Quick Connect -->
   <a href="https://wa.me/918855847066?text=Hello%20Arpan%20Electricals%20%26%20Enterprises%2C%20I%20would%20like%20to%20request%20an%20enquiry%20%2F%20quote%20for%20an%20Electrical%20Substation%20%2F%20Transformer%20project." target="_blank" rel="noopener noreferrer" class="floating-whatsapp" title="Chat on WhatsApp (+91-8855847066)" aria-label="Chat on WhatsApp with Arpan Electricals">
     <svg width="32" height="32" viewBox="0 0 24 24" fill="#ffffff"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
   </a>
