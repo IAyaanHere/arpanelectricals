@@ -87,9 +87,32 @@ document.addEventListener('DOMContentLoaded', () => {
     counters.forEach(counter => counterObserver.observe(counter));
   }
 
-  // 5. Client Tabs Filter
+  // 5. Client Tabs Filter & Top 6 Toggle Handler
   const clientTabs = document.querySelectorAll('.client-filter-tabs .tab-btn');
   const clientCards = document.querySelectorAll('.client-card');
+  const clientsGrid = document.querySelector('.clients-grid');
+  const toggleClientsBtn = document.getElementById('toggleClientsBtn');
+
+  if (toggleClientsBtn && clientsGrid) {
+    toggleClientsBtn.addEventListener('click', () => {
+      const isExpanded = clientsGrid.classList.toggle('is-expanded');
+      toggleClientsBtn.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+      const btnText = toggleClientsBtn.querySelector('.btn-text');
+      const icon = toggleClientsBtn.querySelector('.toggle-icon');
+      
+      if (isExpanded) {
+        if (btnText) btnText.textContent = 'Show Top 6 Clients';
+        if (icon) icon.innerHTML = '<polyline points="18 15 12 9 6 15"></polyline>';
+      } else {
+        if (btnText) btnText.textContent = 'View All Clients (20+)';
+        if (icon) icon.innerHTML = '<polyline points="6 9 12 15 18 9"></polyline>';
+        const clientsSection = document.getElementById('clients');
+        if (clientsSection) {
+          clientsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    });
+  }
 
   clientTabs.forEach(tab => {
     tab.addEventListener('click', () => {
@@ -98,17 +121,41 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const filter = tab.getAttribute('data-filter') || 'all';
 
-      clientCards.forEach(card => {
-        const cat = card.getAttribute('data-category') || '';
-        if (filter === 'all' || cat.includes(filter)) {
-          card.style.display = 'flex';
-          setTimeout(() => { card.style.opacity = '1'; card.style.transform = 'translateY(0)'; }, 50);
-        } else {
-          card.style.display = 'none';
+      if (filter !== 'all') {
+        // Expand grid so all category matches are displayed
+        if (clientsGrid) clientsGrid.classList.add('is-expanded');
+        if (toggleClientsBtn) {
+          const btnText = toggleClientsBtn.querySelector('.btn-text');
+          const icon = toggleClientsBtn.querySelector('.toggle-icon');
+          if (btnText) btnText.textContent = 'Show Top 6 Clients';
+          if (icon) icon.innerHTML = '<polyline points="18 15 12 9 6 15"></polyline>';
         }
-      });
+        clientCards.forEach(card => {
+          const cat = card.getAttribute('data-category') || '';
+          if (cat.includes(filter)) {
+            card.style.display = 'flex';
+            setTimeout(() => { card.style.opacity = '1'; card.style.transform = 'translateY(0)'; }, 30);
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      } else {
+        // Reset to default top 6 view or current expansion state
+        clientCards.forEach(card => {
+          card.style.display = '';
+          card.style.opacity = '1';
+        });
+      }
     });
   });
+
+  // Smooth Back to Top
+  const backToTop = document.querySelector('.back-to-top');
+  if (backToTop) {
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
 
   // 6. Project Lightbox Modal
   const projectCards = document.querySelectorAll('.project-card');
