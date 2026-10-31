@@ -3065,7 +3065,9 @@ textarea.form-control {
 }
 
 
-/* Top Bar Red Phone & Location Text (Matching GST Number Badge) */
+/* ==========================================================================
+   TOP CONTACT BAR (BOLD VIVID RED MATCHING GST NUMBER IN BOTH MODES)
+   ========================================================================== */
 .top-contact-bar {
   background-color: #0c0b0b !important;
 }
@@ -3111,56 +3113,345 @@ textarea.form-control {
   font-weight: 700 !important;
 }
 
-/* Fix Headings in Dark Sections (Why Industry Leaders Choose Us & Testimonials) */
-.section-dark .h2,
-#why-choose-us .h2,
-#testimonials .h2,
-:root:not([data-theme="dark"]) .section-dark .h2,
+/* ==========================================================================
+   COMPLETE LIGHT MODE STYLING SYSTEM (ZERO BLUR, CRISP CARDS & CONTRAST)
+   ========================================================================== */
+
+/* 1. Capabilities Section & Cards (.cap-card) in Light Mode */
+:root:not([data-theme="dark"]) #capabilities,
+:root:not([data-theme="dark"]) .section-capabilities {
+  background-color: #ffffff !important;
+}
+
+:root:not([data-theme="dark"]) .cap-card {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04) !important;
+  border-left: 4px solid #cd0a1b !important;
+}
+
+:root:not([data-theme="dark"]) .cap-card:hover {
+  background: #ffffff !important;
+  border-color: #cd0a1b !important;
+  box-shadow: 0 12px 28px rgba(205, 10, 27, 0.12) !important;
+  transform: translateY(-6px);
+}
+
+:root:not([data-theme="dark"]) .cap-card-icon {
+  background: rgba(205, 10, 27, 0.08) !important;
+  border: 1px solid rgba(205, 10, 27, 0.22) !important;
+  color: #cd0a1b !important;
+}
+
+:root:not([data-theme="dark"]) .cap-card-icon svg {
+  stroke: #cd0a1b !important;
+}
+
+:root:not([data-theme="dark"]) .cap-card-title {
+  color: #0f172a !important;
+  font-weight: 800 !important;
+}
+
+:root:not([data-theme="dark"]) .cap-card-desc {
+  color: #475569 !important;
+  line-height: 1.6 !important;
+}
+
+:root:not([data-theme="dark"]) .cap-card-link {
+  color: #0f172a !important;
+  font-weight: 800 !important;
+}
+
+:root:not([data-theme="dark"]) .cap-card-link svg {
+  stroke: #cd0a1b !important;
+}
+
+:root:not([data-theme="dark"]) .cap-card:hover .cap-card-link {
+  color: #cd0a1b !important;
+}
+
+/* 2. Why Choose Us / Strategic Pillars in Light Mode */
+:root:not([data-theme="dark"]) #why-choose-us,
+:root:not([data-theme="dark"]) .pillars-section,
+:root:not([data-theme="dark"]) .section-pillars {
+  background-color: #f8fafc !important;
+}
+
 :root:not([data-theme="dark"]) #why-choose-us .h2,
-:root:not([data-theme="dark"]) #testimonials .h2,
-[style*="background-color: #121010"] .h2,
-:root:not([data-theme="dark"]) [style*="background-color: #121010"] .h2 {
-  color: #ffffff !important;
-  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.85) !important;
+:root:not([data-theme="dark"]) .pillars-section .h2 {
+  color: #0f172a !important;
+  text-shadow: none !important;
 }
 
-.section-dark .section-description,
-#why-choose-us .section-description,
-#testimonials .section-description,
-:root:not([data-theme="dark"]) .section-dark .section-description,
 :root:not([data-theme="dark"]) #why-choose-us .section-description,
-:root:not([data-theme="dark"]) #testimonials .section-description,
-[style*="background-color: #121010"] .section-description,
-:root:not([data-theme="dark"]) [style*="background-color: #121010"] .section-description {
-  color: #cbd5e1 !important;
-  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6) !important;
+:root:not([data-theme="dark"]) .pillars-section .section-description {
+  color: #334155 !important;
+  text-shadow: none !important;
 }
 
-.section-dark .pillar-content h4,
-#why-choose-us .pillar-content h4,
 :root:not([data-theme="dark"]) #why-choose-us .pillar-content h4 {
-  color: #ffffff !important;
+  color: #0f172a !important;
+  text-shadow: none !important;
 }
 
-.section-dark .pillar-content p,
-#why-choose-us .pillar-content p,
 :root:not([data-theme="dark"]) #why-choose-us .pillar-content p {
-  color: #adadad !important;
+  color: #475569 !important;
+  text-shadow: none !important;
 }
 
-.section-dark .cap-card h4,
-#testimonials .cap-card h4,
+:root:not([data-theme="dark"]) #why-choose-us .pillar-number {
+  color: #cd0a1b !important;
+  background: rgba(205, 10, 27, 0.08) !important;
+  border-color: rgba(205, 10, 27, 0.2) !important;
+}
+
+/* 3. Testimonials / Client Satisfaction in Light Mode (Pure Crisp Typography - ZERO BLUR) */
+:root:not([data-theme="dark"]) #testimonials,
+:root:not([data-theme="dark"]) .section-testimonials {
+  background-color: #ffffff !important;
+}
+
+:root:not([data-theme="dark"]) #testimonials .h2,
+:root:not([data-theme="dark"]) .section-testimonials .h2 {
+  color: #0f172a !important;
+  text-shadow: none !important;
+}
+
+:root:not([data-theme="dark"]) #testimonials .section-description,
+:root:not([data-theme="dark"]) .section-testimonials .section-description {
+  color: #334155 !important;
+  text-shadow: none !important;
+}
+
+:root:not([data-theme="dark"]) #testimonials .section-description strong,
+:root:not([data-theme="dark"]) .section-testimonials .section-description strong {
+  color: #0f172a !important;
+}
+
+:root:not([data-theme="dark"]) #testimonials .cap-card {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04) !important;
+  border-left: 1px solid #e2e8f0 !important;
+}
+
+:root:not([data-theme="dark"]) #testimonials .cap-card:hover {
+  border-color: #cd0a1b !important;
+  box-shadow: 0 10px 25px rgba(205, 10, 27, 0.08) !important;
+}
+
 :root:not([data-theme="dark"]) #testimonials .cap-card h4 {
+  color: #0f172a !important;
+  text-shadow: none !important;
+}
+
+:root:not([data-theme="dark"]) #testimonials .cap-card p,
+:root:not([data-theme="dark"]) #testimonials .cap-card .cap-card-desc {
+  color: #475569 !important;
+  text-shadow: none !important;
+}
+
+:root:not([data-theme="dark"]) #testimonials .cap-card strong {
+  color: #0f172a !important;
+}
+
+:root:not([data-theme="dark"]) #testimonials .cap-card div[style*="border-top"] {
+  border-top-color: #e2e8f0 !important;
+  color: #64748b !important;
+}
+
+/* 4. Contact Cards & Form Panel in Light Mode */
+:root:not([data-theme="dark"]) #contact {
+  background-color: #f8fafc !important;
+}
+
+:root:not([data-theme="dark"]) .contact-card-item {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  border-left: 4px solid #cd0a1b !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
+}
+
+:root:not([data-theme="dark"]) .contact-card-item h4 {
+  color: #0f172a !important;
+}
+
+:root:not([data-theme="dark"]) .contact-card-item p,
+:root:not([data-theme="dark"]) .contact-card-item span,
+:root:not([data-theme="dark"]) .contact-card-item a {
+  color: #475569 !important;
+}
+
+:root:not([data-theme="dark"]) .contact-card-item a:hover {
+  color: #cd0a1b !important;
+}
+
+:root:not([data-theme="dark"]) .contact-form-panel {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06) !important;
+}
+
+:root:not([data-theme="dark"]) .contact-form-panel h3 {
+  color: #0f172a !important;
+}
+
+:root:not([data-theme="dark"]) .form-label {
+  color: #1e293b !important;
+}
+
+:root:not([data-theme="dark"]) .form-control {
+  background: #f8fafc !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #0f172a !important;
+}
+
+:root:not([data-theme="dark"]) .form-control:focus {
+  background: #ffffff !important;
+  border-color: #cd0a1b !important;
+}
+
+:root:not([data-theme="dark"]) select.form-control {
+  background: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+/* 5. Advisory / Leadership Factsheet Items in Light Mode */
+:root:not([data-theme="dark"]) .advisory-item {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
+  padding: 2.2rem !important;
+}
+
+:root:not([data-theme="dark"]) .advisory-item h4 {
+  color: #0f172a !important;
+}
+
+:root:not([data-theme="dark"]) .advisory-item .exp-badge {
+  color: #cd0a1b !important;
+}
+
+:root:not([data-theme="dark"]) .advisory-item p {
+  color: #475569 !important;
+}
+
+/* ==========================================================================
+   COMPLETE DARK MODE STYLING SYSTEM
+   ========================================================================== */
+[data-theme="dark"] #capabilities,
+[data-theme="dark"] #why-choose-us,
+[data-theme="dark"] #testimonials,
+[data-theme="dark"] #contact {
+  background-color: #121010 !important;
+}
+
+[data-theme="dark"] .cap-card {
+  background: #1e1b1b !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-left: 4px solid var(--theme-primary) !important;
+}
+
+[data-theme="dark"] .cap-card:hover {
+  background: #252222 !important;
+  border-color: rgba(205, 10, 27, 0.5) !important;
+}
+
+[data-theme="dark"] .cap-card-title {
   color: #ffffff !important;
 }
 
-.section-dark .cap-card p,
-#testimonials .cap-card p,
-:root:not([data-theme="dark"]) #testimonials .cap-card p {
+[data-theme="dark"] .cap-card-desc {
   color: #adadad !important;
 }
 
-/* Hide Toast completely */
+[data-theme="dark"] .cap-card-link {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .cap-card-icon {
+  background: rgba(205, 10, 27, 0.12) !important;
+  border: 1px solid rgba(205, 10, 27, 0.3) !important;
+}
+
+[data-theme="dark"] .cap-card-icon svg {
+  stroke: var(--theme-secondary) !important;
+}
+
+[data-theme="dark"] #why-choose-us .h2,
+[data-theme="dark"] #testimonials .h2 {
+  color: #ffffff !important;
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.9) !important;
+}
+
+[data-theme="dark"] #why-choose-us .section-description,
+[data-theme="dark"] #testimonials .section-description {
+  color: #cbd5e1 !important;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8) !important;
+}
+
+[data-theme="dark"] #why-choose-us .pillar-content h4 {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] #why-choose-us .pillar-content p {
+  color: #adadad !important;
+}
+
+[data-theme="dark"] #testimonials .cap-card {
+  background: #181515 !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+[data-theme="dark"] #testimonials .cap-card h4 {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] #testimonials .cap-card p,
+[data-theme="dark"] #testimonials .cap-card .cap-card-desc {
+  color: #adadad !important;
+}
+
+[data-theme="dark"] #testimonials .cap-card strong {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .contact-card-item {
+  background: #201d1d !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  border-left: 4px solid var(--theme-primary) !important;
+}
+
+[data-theme="dark"] .contact-card-item h4 {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .contact-card-item p,
+[data-theme="dark"] .contact-card-item a {
+  color: #adadad !important;
+}
+
+[data-theme="dark"] .contact-form-panel {
+  background: #1c1a1a !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+[data-theme="dark"] .contact-form-panel h3 {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .form-control {
+  background: #282424 !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+[data-theme="dark"] select.form-control {
+  background: #282424 !important;
+  color: #ffffff !important;
+}
+
+/* Hide Toast permanently */
 .toast {
   display: none !important;
   visibility: hidden !important;
