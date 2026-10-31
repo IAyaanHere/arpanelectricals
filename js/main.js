@@ -1,20 +1,62 @@
 /**
  * Arpan Electricals & Enterprises - Quanta Theme Interactive Scripts
- * Responsive Features, WhatsApp Quick Quote & Interactive UI
+ * Responsive Features, Theme Toggle, WhatsApp Integration & Interactive UI
  */
 
+// Global Theme Switcher accessible everywhere
+function setThemeMode(theme) {
+  const targetTheme = theme === 'dark' ? 'dark' : 'light';
+  document.documentElement.setAttribute('data-theme', targetTheme);
+  try {
+    localStorage.setItem('arpan_theme', targetTheme);
+  } catch (e) {
+    // localStorage may be disabled in some sandboxes
+  }
+}
+
+function toggleThemeMode() {
+  const current = document.documentElement.getAttribute('data-theme') || 'light';
+  const nextTheme = current === 'dark' ? 'light' : 'dark';
+  setThemeMode(nextTheme);
+  return nextTheme;
+}
+
+// Make globally accessible
+window.toggleTheme = toggleThemeMode;
+window.setTheme = setThemeMode;
+
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Sticky Navbar
+  // Initialize theme from storage (default: light)
+  try {
+    const saved = localStorage.getItem('arpan_theme') || 'light';
+    setThemeMode(saved);
+  } catch (e) {
+    setThemeMode('light');
+  }
+
+  // 1. Theme Toggle Event Listeners (both desktop navbar & mobile drawer)
+  const themeBtns = document.querySelectorAll('.theme-toggle-btn, #themeToggleBtn, #drawerThemeToggleBtn');
+  themeBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      toggleThemeMode();
+    });
+  });
+
+  // 2. Sticky Navbar Locked on Scroll
   const navbar = document.querySelector('.navbar');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 40) {
+  function handleScroll() {
+    if (window.scrollY > 20) {
       navbar?.classList.add('scrolled');
     } else {
       navbar?.classList.remove('scrolled');
     }
-  });
+  }
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  handleScroll();
 
-  // 2. Mobile Drawer Navigation
+  // 3. Mobile Drawer Navigation
   const menuToggle = document.querySelector('.menu-toggle');
   const drawerClose = document.querySelector('.drawer-close');
   const mobileDrawer = document.querySelector('.mobile-drawer');
@@ -38,14 +80,13 @@ document.addEventListener('DOMContentLoaded', () => {
   drawerBackdrop?.addEventListener('click', closeDrawer);
   drawerLinks.forEach(link => link.addEventListener('click', closeDrawer));
 
-  // 3. Hero Video Autoplay Assurance
+  // 4. Hero Video Autoplay Assurance
   const heroVideo = document.querySelector('.hero-video-element');
   if (heroVideo) {
     heroVideo.muted = true;
     const playPromise = heroVideo.play();
     if (playPromise !== undefined) {
       playPromise.catch(() => {
-        // Retry autoplay if initially deferred by browser
         document.addEventListener('click', () => {
           heroVideo.play().catch(() => {});
         }, { once: true });
@@ -53,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // 4. KPI Number Count-Up Animation
+  // 5. KPI Number Count-Up Animation
   const counters = document.querySelectorAll('.counter-number');
   if (counters.length > 0) {
     const counterObserver = new IntersectionObserver((entries, observer) => {
@@ -61,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (entry.isIntersecting) {
           const el = entry.target;
           const target = parseInt(el.getAttribute('data-target'), 10) || 0;
-          const duration = 2000; // 2 seconds
+          const duration = 2000;
           const startTime = performance.now();
 
           function updateCounter(currentTime) {
@@ -87,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
     counters.forEach(counter => counterObserver.observe(counter));
   }
 
-  // 5. Client Tabs Filter & Top 6 Toggle Handler
+  // 6. Client Tabs Filter & Top 6 Toggle Handler
   const clientTabs = document.querySelectorAll('.client-filter-tabs .tab-btn');
   const clientCards = document.querySelectorAll('.client-card');
   const clientsGrid = document.querySelector('.clients-grid');
@@ -122,7 +163,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const filter = tab.getAttribute('data-filter') || 'all';
 
       if (filter !== 'all') {
-        // Expand grid so all category matches are displayed
         if (clientsGrid) clientsGrid.classList.add('is-expanded');
         if (toggleClientsBtn) {
           const btnText = toggleClientsBtn.querySelector('.btn-text');
@@ -140,7 +180,6 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         });
       } else {
-        // Reset to default top 6 view or current expansion state
         clientCards.forEach(card => {
           card.style.display = '';
           card.style.opacity = '1';
@@ -149,16 +188,66 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Smooth Back to Top
-  const backToTop = document.querySelector('.back-to-top');
-  if (backToTop) {
-    backToTop.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+  // 7. Project Filter Tabs & Top 5 Toggle Handler
+  const projectTabs = document.querySelectorAll('.project-filter-tabs .tab-btn');
+  const projectCards = document.querySelectorAll('.project-card');
+  const projectsGrid = document.querySelector('.projects-grid');
+  const toggleProjectsBtn = document.getElementById('toggleProjectsBtn');
+
+  if (toggleProjectsBtn && projectsGrid) {
+    toggleProjectsBtn.addEventListener('click', () => {
+      const isExpanded = projectsGrid.classList.toggle('is-expanded');
+      toggleProjectsBtn.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+      const btnText = toggleProjectsBtn.querySelector('.btn-text');
+      const icon = toggleProjectsBtn.querySelector('.toggle-icon');
+      
+      if (isExpanded) {
+        if (btnText) btnText.textContent = 'Show Top 5 Projects';
+        if (icon) icon.innerHTML = '<polyline points="18 15 12 9 6 15"></polyline>';
+      } else {
+        if (btnText) btnText.textContent = 'View All Projects (12+)';
+        if (icon) icon.innerHTML = '<polyline points="6 9 12 15 18 9"></polyline>';
+        const projectsSection = document.getElementById('projects');
+        if (projectsSection) {
+          projectsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
     });
   }
 
-  // 6. Project Lightbox Modal
-  const projectCards = document.querySelectorAll('.project-card');
+  // Filter tabs logic with auto-expand
+  projectTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      projectTabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      const filter = tab.getAttribute('data-filter') || 'all';
+
+      if (filter !== 'all') {
+        if (projectsGrid) projectsGrid.classList.add('is-expanded');
+        if (toggleProjectsBtn) {
+          const btnText = toggleProjectsBtn.querySelector('.btn-text');
+          const icon = toggleProjectsBtn.querySelector('.toggle-icon');
+          if (btnText) btnText.textContent = 'Show Top 5 Projects';
+          if (icon) icon.innerHTML = '<polyline points="18 15 12 9 6 15"></polyline>';
+        }
+        projectCards.forEach(card => {
+          const cat = card.getAttribute('data-category') || '';
+          if (cat.includes(filter)) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      } else {
+        projectCards.forEach(card => {
+          card.style.display = '';
+        });
+      }
+    });
+  });
+
+  // 8. Project Lightbox Modal
   const lightboxModal = document.querySelector('.lightbox-modal');
   const lightboxImg = document.querySelector('.lightbox-img');
   const lightboxTitle = document.querySelector('.lightbox-title');
@@ -196,7 +285,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Close modals on Escape
+  // Close modals on Escape key
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       closeDrawer();
@@ -204,27 +293,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 7. Project Filter Tabs
-  const projectTabs = document.querySelectorAll('.project-filter-tabs .tab-btn');
-  projectTabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      projectTabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-
-      const filter = tab.getAttribute('data-filter') || 'all';
-
-      projectCards.forEach(card => {
-        const cat = card.getAttribute('data-category') || '';
-        if (filter === 'all' || cat.includes(filter)) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    });
-  });
-
-  // 8. Contact Form Handling -> Direct WhatsApp pre-typed integration to +918855847066
+  // 9. Contact Form Handling -> Direct WhatsApp pre-typed integration
   const contactForms = document.querySelectorAll('#contact-form, form');
   const toast = document.querySelector('.toast');
 
@@ -270,79 +339,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 9. Back to Top
-  const backToTopBtn = document.querySelector('.back-to-top');
-  backToTopBtn?.addEventListener('click', () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
+  // 10. Back to Top Button
+  const backToTopBtns = document.querySelectorAll('.back-to-top');
+  backToTopBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   });
-
-  // 6. Project Filter Tabs & Top 5 Toggle Handler
-  const projectTabs = document.querySelectorAll('.project-filter-tabs .tab-btn');
-  const projectCards = document.querySelectorAll('.project-card');
-  const projectsGrid = document.querySelector('.projects-grid');
-  const toggleProjectsBtn = document.getElementById('toggleProjectsBtn');
-
-  if (toggleProjectsBtn && projectsGrid) {
-    toggleProjectsBtn.addEventListener('click', () => {
-      const isExpanded = projectsGrid.classList.toggle('is-expanded');
-      toggleProjectsBtn.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
-      const btnText = toggleProjectsBtn.querySelector('.btn-text');
-      const icon = toggleProjectsBtn.querySelector('.toggle-icon');
-      
-      if (isExpanded) {
-        if (btnText) btnText.textContent = 'Show Top 5 Projects';
-        if (icon) icon.innerHTML = '<polyline points="18 15 12 9 6 15"></polyline>';
-      } else {
-        if (btnText) btnText.textContent = 'View All Projects (12+)';
-        if (icon) icon.innerHTML = '<polyline points="6 9 12 15 18 9"></polyline>';
-        const projectsSection = document.getElementById('projects');
-        if (projectsSection) {
-          projectsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }
-    });
-  }
-
-  // Auto-expand projects when filtering
-  projectTabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      const filter = tab.getAttribute('data-filter') || 'all';
-      if (filter !== 'all') {
-        if (projectsGrid) projectsGrid.classList.add('is-expanded');
-        if (toggleProjectsBtn) {
-          const btnText = toggleProjectsBtn.querySelector('.btn-text');
-          const icon = toggleProjectsBtn.querySelector('.toggle-icon');
-          if (btnText) btnText.textContent = 'Show Top 5 Projects';
-          if (icon) icon.innerHTML = '<polyline points="18 15 12 9 6 15"></polyline>';
-        }
-      }
-    });
-  });
-
-
-  // 7. Theme Mode (Light / Dark) Toggle Handler - Default is Light (White) Mode
-  const themeToggleBtns = document.querySelectorAll('#themeToggleBtn, #drawerThemeToggleBtn');
-  
-  function applyTheme(theme) {
-    if (theme === 'dark') {
-      document.documentElement.setAttribute('data-theme', 'dark');
-      localStorage.setItem('arpan_theme', 'dark');
-    } else {
-      document.documentElement.setAttribute('data-theme', 'light');
-      localStorage.setItem('arpan_theme', 'light');
-    }
-  }
-
-  themeToggleBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const current = document.documentElement.getAttribute('data-theme') || 'light';
-      const nextTheme = current === 'dark' ? 'light' : 'dark';
-      applyTheme(nextTheme);
-    });
-  });
-
 });
