@@ -322,4 +322,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+
+  // 7. Theme Mode (Light / Dark) Toggle Handler - Default is Light (White) Mode
+  const themeToggleBtns = document.querySelectorAll('#themeToggleBtn, #drawerThemeToggleBtn');
+  
+  function applyTheme(theme) {
+    if (theme === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      localStorage.setItem('arpan_theme', 'dark');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+      localStorage.setItem('arpan_theme', 'light');
+    }
+  }
+
+  themeToggleBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const current = document.documentElement.getAttribute('data-theme') || 'light';
+      const nextTheme = current === 'dark' ? 'light' : 'dark';
+      applyTheme(nextTheme);
+    });
+  });
+
 });

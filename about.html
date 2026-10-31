@@ -10,6 +10,13 @@
   <!-- Quanta Services Design System Stylesheets -->
   <link rel="stylesheet" href="_next/static/css/a41a6d3d1472bc70.css">
   <link rel="stylesheet" href="css/quanta-theme.css">
+  <!-- Early Theme Init: Default White / Light Mode -->
+  <script>
+    (function() {
+      var saved = localStorage.getItem('arpan_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', saved);
+    })();
+  </script>
 </head>
 <body class="bg-dark">
 
@@ -35,8 +42,9 @@
   <!-- NAVBAR -->
   <header class="navbar">
     <div class="container navbar-content">
-      <a href="index.html" class="site-logo" title="Arpan Electricals &amp; Enterprises">
-        <img src="assets/logos/arpan-logo-white.svg?v=4" alt="Arpan Electricals Logo" height="54">
+            <a href="index.html" class="site-logo" title="Arpan Electricals &amp; Enterprises">
+        <img src="assets/logos/arpan-logo.svg" alt="Arpan Electricals Logo" class="logo-light" height="52">
+        <img src="assets/logos/arpan-logo-white.svg?v=4" alt="Arpan Electricals Logo" class="logo-dark" height="52">
       </a>
 
       <ul class="nav-menu">
@@ -48,7 +56,7 @@
         <li><a href="contact.html" class="nav-link">Contact</a></li>
       </ul>
 
-            <!-- Navbar Action Buttons (Utilised Space + Hotline + Responsive CTA) -->
+                  <!-- Navbar Action Buttons (Hotline + Theme Toggle + Responsive CTA + Hamburger) -->
       <div class="nav-actions">
         <a href="tel:+918047657578" class="header-phone-cta" title="Call Arpan Electricals Hotline">
           <span class="phone-icon-wrap">
@@ -59,6 +67,26 @@
             <strong>+91-8047657578</strong>
           </span>
         </a>
+
+        <!-- Light/Dark Mode Switch (Default Light Mode) -->
+        <button id="themeToggleBtn" class="theme-toggle-btn" aria-label="Toggle Light and Dark Mode" title="Toggle Theme (Light / Dark)">
+          <!-- Moon Icon (shown in Light Mode to switch to Dark) -->
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <!-- Sun Icon (shown in Dark Mode to switch to Light) -->
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
 
         <a href="https://wa.me/918855847066?text=Hello%20Arpan%20Electricals%20%26%20Enterprises%2C%20I%20would%20like%20to%20request%20an%20enquiry%20%2F%20quote%20for%20an%20Electrical%20Substation%20%2F%20Transformer%20project." target="_blank" rel="noopener noreferrer" class="btn btn-primary" title="Request Quote on WhatsApp (+91-8855847066)">
           <span>Request Quote</span>
@@ -75,10 +103,21 @@
   <!-- OFFCANVAS MOBILE DRAWER -->
   <div class="drawer-backdrop"></div>
   <aside class="mobile-drawer">
-    <div class="drawer-header">
+        <div class="drawer-header">
       <div class="site-logo">
-        <img src="assets/logos/arpan-logo-white.svg?v=4" alt="Arpan Electricals Logo" height="44">
+        <img src="assets/logos/arpan-logo.svg" alt="Arpan Electricals Logo" class="logo-light" height="42">
+        <img src="assets/logos/arpan-logo-white.svg?v=4" alt="Arpan Electricals Logo" class="logo-dark" height="42">
       </div>
+      <button class="drawer-close" aria-label="Close menu">&times;</button>
+    </div>
+    <!-- Drawer Theme Switch -->
+    <div style="padding: 1.2rem 2rem; border-bottom: 1px solid rgba(0,0,0,0.06); display: flex; align-items: center; justify-content: space-between;">
+      <span style="font-size: 1.35rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">Theme</span>
+      <button id="drawerThemeToggleBtn" class="theme-toggle-btn" aria-label="Toggle Theme" style="width: 36px; height: 36px;">
+        <svg class="theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        <svg class="theme-icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+      </button>
+    </div>
       <button class="drawer-close" aria-label="Close menu">&times;</button>
     </div>
     <ul class="drawer-nav">
