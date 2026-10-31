@@ -326,7 +326,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (req) waText += `\nRequirement / Service: ${req}`;
       if (msg) waText += `\nScope / Details: ${msg}`;
 
-      const waUrl = `https://wa.me/918855847066?text=${encodeURIComponent(waText)}`;
+      const waUrl = `https://wa.me/918047657578?text=${encodeURIComponent(waText)}`;
 
 
       window.open(waUrl, '_blank');
