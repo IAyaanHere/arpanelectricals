@@ -295,8 +295,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 9. Contact Form Handling -> Direct WhatsApp pre-typed integration
   const contactForms = document.querySelectorAll('#contact-form, form');
-  const toast = document.querySelector('.toast');
-
+  
   contactForms.forEach(form => {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -329,10 +328,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const waUrl = `https://wa.me/918855847066?text=${encodeURIComponent(waText)}`;
 
-      if (toast) {
-        toast.classList.add('show');
-        setTimeout(() => toast.classList.remove('show'), 5000);
-      }
 
       window.open(waUrl, '_blank');
       form.reset();

@@ -282,7 +282,8 @@ h6, .h6 { font-size: 1.5rem; letter-spacing: 0.1em; }
   display: inline-flex;
   align-items: center;
   gap: 0.8rem;
-  color: #b8b8b8;
+  color: #ff6470;
+  font-weight: 700;
   transition: var(--transition);
   font-size: 1.3rem;
 }
@@ -292,7 +293,8 @@ h6, .h6 { font-size: 1.5rem; letter-spacing: 0.1em; }
 }
 
 .top-bar-item svg {
-  stroke: var(--theme-primary);
+  stroke: #ff4d5a !important;
+  color: #ff4d5a !important;
   width: 14px;
   height: 14px;
   flex-shrink: 0;
@@ -2500,7 +2502,8 @@ textarea.form-control {
 }
 :root:not([data-theme="dark"]) .top-bar-item a,
 :root:not([data-theme="dark"]) .top-bar-item span {
-  color: #475569;
+  color: #ff6470 !important;
+  font-weight: 700 !important;
 }
 :root:not([data-theme="dark"]) .top-bar-item a:hover {
   color: #cd0a1b;
@@ -3059,4 +3062,107 @@ textarea.form-control {
     padding: 0 0.8rem !important;
     font-size: 1.1rem !important;
   }
+}
+
+
+/* Top Bar Red Phone & Location Text (Matching GST Number Badge) */
+.top-contact-bar {
+  background-color: #0c0b0b !important;
+}
+
+.top-bar-item a,
+.top-bar-item span {
+  color: #ff6470 !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.02em !important;
+}
+
+.top-bar-item a:hover,
+.top-bar-item span:hover {
+  color: #ffffff !important;
+}
+
+.top-bar-item svg {
+  stroke: #ff4d5a !important;
+  color: #ff4d5a !important;
+}
+
+.top-bar-badge {
+  background-color: rgba(205, 10, 27, 0.2) !important;
+  color: #ff6470 !important;
+  border-left: 2px solid #cd0a1b !important;
+  font-weight: 700 !important;
+}
+
+:root:not([data-theme="dark"]) .top-contact-bar {
+  background-color: #0c0b0b !important;
+}
+
+:root:not([data-theme="dark"]) .top-bar-item a,
+:root:not([data-theme="dark"]) .top-bar-item span {
+  color: #ff6470 !important;
+  font-weight: 700 !important;
+}
+
+:root:not([data-theme="dark"]) .top-bar-badge {
+  background-color: rgba(205, 10, 27, 0.2) !important;
+  color: #ff6470 !important;
+  border-left: 2px solid #cd0a1b !important;
+  font-weight: 700 !important;
+}
+
+/* Fix Headings in Dark Sections (Why Industry Leaders Choose Us & Testimonials) */
+.section-dark .h2,
+#why-choose-us .h2,
+#testimonials .h2,
+:root:not([data-theme="dark"]) .section-dark .h2,
+:root:not([data-theme="dark"]) #why-choose-us .h2,
+:root:not([data-theme="dark"]) #testimonials .h2,
+[style*="background-color: #121010"] .h2,
+:root:not([data-theme="dark"]) [style*="background-color: #121010"] .h2 {
+  color: #ffffff !important;
+  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.85) !important;
+}
+
+.section-dark .section-description,
+#why-choose-us .section-description,
+#testimonials .section-description,
+:root:not([data-theme="dark"]) .section-dark .section-description,
+:root:not([data-theme="dark"]) #why-choose-us .section-description,
+:root:not([data-theme="dark"]) #testimonials .section-description,
+[style*="background-color: #121010"] .section-description,
+:root:not([data-theme="dark"]) [style*="background-color: #121010"] .section-description {
+  color: #cbd5e1 !important;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6) !important;
+}
+
+.section-dark .pillar-content h4,
+#why-choose-us .pillar-content h4,
+:root:not([data-theme="dark"]) #why-choose-us .pillar-content h4 {
+  color: #ffffff !important;
+}
+
+.section-dark .pillar-content p,
+#why-choose-us .pillar-content p,
+:root:not([data-theme="dark"]) #why-choose-us .pillar-content p {
+  color: #adadad !important;
+}
+
+.section-dark .cap-card h4,
+#testimonials .cap-card h4,
+:root:not([data-theme="dark"]) #testimonials .cap-card h4 {
+  color: #ffffff !important;
+}
+
+.section-dark .cap-card p,
+#testimonials .cap-card p,
+:root:not([data-theme="dark"]) #testimonials .cap-card p {
+  color: #adadad !important;
+}
+
+/* Hide Toast completely */
+.toast {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
 }
